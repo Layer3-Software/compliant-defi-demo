@@ -4,6 +4,7 @@ import { Alert, Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { routes } from "lib/constants";
 import { useKyc, useVerida } from "lib/hooks";
+import UserCheck from "components/UserCheck";
 
 export const HomeView: React.FunctionComponent = () => {
   const navigate = useNavigate();
@@ -43,6 +44,8 @@ export const HomeView: React.FunctionComponent = () => {
         </Alert>
       )}
       <SwapBox />
+
+      <UserCheck />
       <Typography variant="caption">
         This application is not functioning and meant for Verida demo purpose
         only
