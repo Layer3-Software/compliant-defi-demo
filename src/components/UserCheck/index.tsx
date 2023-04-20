@@ -15,7 +15,9 @@ const UserCheck = () => {
     textColor: "#e2e8f0",
   };
 
-  const roles = ["64726a3f-b5a6-48c4-82c5-295e480f2091"];
+  const KYC_ROLE_VERIDA = "64726a3f-b5a6-48c4-82c5-295e480f2091";
+
+  const roles = [KYC_ROLE_VERIDA];
 
   const connect = async () => {
     const res = await connectMetamask();

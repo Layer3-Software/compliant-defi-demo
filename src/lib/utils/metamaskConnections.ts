@@ -22,9 +22,6 @@ export const connectMetamask = async () => {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       const provider: Web3Provider = new Web3Provider(window.ethereum, "any");
       const signer: JsonRpcSigner = provider.getSigner();
-      console.log("address", address);
-      console.log("provider", provider);
-      console.log("signer", signer);
 
       return {
         address,
