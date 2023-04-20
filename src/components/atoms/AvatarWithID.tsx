@@ -32,7 +32,7 @@ export const AvatarWithID: React.FunctionComponent<AvatarWithIDProps> = (
           src={imageSrc}
         />
         {id && (
-          <Typography variant="body2">{`${id.slice(4, 13)}...`}</Typography>
+          <Typography variant="body2">{`${id.slice(0, 10)}...`}</Typography>
         )}
       </Paper>
     </>

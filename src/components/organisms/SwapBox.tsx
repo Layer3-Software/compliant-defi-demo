@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/no-misused-promises */
+import React, { useContext } from "react";
 import {
   Box,
   Button,
@@ -8,23 +9,27 @@ import {
   MenuItem,
 } from "@mui/material";
 import { KeyboardArrowDown as ArrowDownIcon } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
 import {
-  routes,
   swapAssets,
   defaultGiveAsset,
   defaultReceiveAsset,
 } from "lib/constants";
-import { useVerida } from "lib/hooks";
+import { MetamaskContext } from "lib/contexts";
+import { connectMetamask } from "lib/utils/metamaskConnections";
 
 export const SwapBox: React.FunctionComponent = () => {
-  const navigate = useNavigate();
-  const { isConnected } = useVerida();
+  const { isConnected, setAddress, setIsConnected, setSigner } =
+    useContext(MetamaskContext);
 
-  const handleConnectWalletClick = () => {
-    navigate(routes.profile);
+  const connect = async () => {
+    const res = await connectMetamask();
+
+    if (res) {
+      setAddress(res.address);
+      setSigner(res.signer);
+      setIsConnected(true);
+    }
   };
-
   return (
     <Paper sx={{ width: "100%" }} elevation={8}>
       <Box sx={{ display: "flex", flexDirection: "column", gap: 2, p: 2 }}>
@@ -94,7 +99,7 @@ export const SwapBox: React.FunctionComponent = () => {
               variant="contained"
               size="large"
               sx={{ width: "100%" }}
-              onClick={handleConnectWalletClick}
+              onClick={connect}
             >
               Connect Wallet
             </Button>

@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/no-misused-promises */
+import React, { useContext } from "react";
 import {
   AppBar,
   Toolbar,
@@ -15,12 +16,16 @@ import { routes } from "lib/constants";
 import { useVerida } from "lib/hooks";
 import { AvatarWithID } from "components/atoms";
 import { connectMetamask } from "lib/utils/metamaskConnections";
+import { MetamaskContext } from "lib/contexts";
 
 export const TopBar: React.FunctionComponent = () => {
   const navigate = useNavigate();
+
+  const { setAddress, setSigner, setIsConnected, isConnected, address } =
+    useContext(MetamaskContext);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const menuOpen = Boolean(anchorEl);
-  const { isConnected, profile, did, disconnect } = useVerida();
+  const { profile, disconnect } = useVerida();
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -40,7 +45,15 @@ export const TopBar: React.FunctionComponent = () => {
     closeMenu();
   };
 
-  const handleConnect = () => {};
+  const connect = async () => {
+    const res = await connectMetamask();
+
+    if (res) {
+      setAddress(res.address);
+      setSigner(res.signer);
+      setIsConnected(true);
+    }
+  };
 
   const menu = (
     <Menu
@@ -85,7 +98,7 @@ export const TopBar: React.FunctionComponent = () => {
         <Box>
           {!isConnected && (
             <>
-              <Button color="inherit" onClick={handleConnect}>
+              <Button color="inherit" onClick={connect}>
                 Connect here
               </Button>
             </>
@@ -99,7 +112,7 @@ export const TopBar: React.FunctionComponent = () => {
               sx={{ p: 0 }}
             >
               <AvatarWithID
-                id={did}
+                id={address}
                 imageAlt={profile?.name}
                 imageSrc={profile?.avatarUri}
               />
