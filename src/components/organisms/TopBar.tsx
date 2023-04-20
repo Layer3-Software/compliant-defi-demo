@@ -14,6 +14,7 @@ import { config } from "config";
 import { routes } from "lib/constants";
 import { useVerida } from "lib/hooks";
 import { AvatarWithID } from "components/atoms";
+import { connectMetamask } from "lib/utils/metamaskConnections";
 
 export const TopBar: React.FunctionComponent = () => {
   const navigate = useNavigate();
@@ -38,6 +39,8 @@ export const TopBar: React.FunctionComponent = () => {
     await disconnect(); // TODO handle error
     closeMenu();
   };
+
+  const handleConnect = () => {};
 
   const menu = (
     <Menu
@@ -82,11 +85,8 @@ export const TopBar: React.FunctionComponent = () => {
         <Box>
           {!isConnected && (
             <>
-              <Button
-                color="inherit"
-                onClick={() => handleMenuItemClick(routes.profile)}
-              >
-                Connect
+              <Button color="inherit" onClick={handleConnect}>
+                Connect here
               </Button>
             </>
           )}

@@ -1,11 +1,12 @@
+import { JsonRpcSigner } from "@ethersproject/providers";
 import { GateKeeperModal } from "@layer3/gatekeeper-sdk";
-import { useVerida } from "lib/hooks";
+
+import { connectMetamask } from "lib/utils/metamaskConnections";
+import { useState } from "react";
 
 const UserCheck = () => {
-  const { did } = useVerida();
-
-  const parts = did?.split(":") || "";
-  const userAddress: string = parts[parts.length - 1];
+  const [address, setAddress] = useState<string>("");
+  const [signer, setSigner] = useState<JsonRpcSigner | null>(null);
 
   const customization = {
     primaryColor: "#059669",
@@ -16,14 +17,27 @@ const UserCheck = () => {
 
   const roles = ["64726a3f-b5a6-48c4-82c5-295e480f2091"];
 
-  if (!userAddress) return null;
+  const connect = async () => {
+    const res = await connectMetamask();
+
+    if (res) {
+      setAddress(res.address);
+      setSigner(res.signer);
+    }
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises
+  if (!address) return <button onClick={connect}>CONNECT METAMASK</button>;
   return (
-    <GateKeeperModal
-      account={userAddress}
-      roles={roles}
-      isStaging={true}
-      customization={customization}
-    />
+    <div>
+      <GateKeeperModal
+        account={address}
+        roles={roles}
+        signer={signer}
+        isStaging={true}
+        customization={customization}
+      />
+    </div>
   );
 };
 export default UserCheck;
