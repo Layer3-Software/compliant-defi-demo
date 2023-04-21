@@ -7,7 +7,7 @@
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@ethersproject/providers": "^5.7.2",
-    "@layer3/gatekeeper-sdk": "^1.10.1",
+    "@layer3/gatekeeper-sdk": "^1.10.2",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.9.2",
     "@testing-library/jest-dom": "^5.16.1",
