@@ -23,6 +23,7 @@ const UserCheck = () => {
       <GateKeeperModal
         account={address}
         roles={roles}
+        simulateKYC={true}
         signer={signer}
         isStaging={true}
         customization={customization}
