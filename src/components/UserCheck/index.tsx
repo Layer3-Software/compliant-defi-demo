@@ -12,7 +12,7 @@ const UserCheck = () => {
     textColor: "black",
   };
 
-  const KYC_ROLE_VERIDA = "64726a3f-b5a6-48c4-82c5-295e480f2091";
+  const KYC_ROLE_VERIDA = "338934a5-138d-4280-8609-1e213807a787";
 
   const roles = [KYC_ROLE_VERIDA];
 
