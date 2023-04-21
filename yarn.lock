@@ -2004,10 +2004,10 @@
   resolved "https://registry.yarnpkg.com/@jsdevtools/ono/-/ono-7.1.3.tgz#9df03bbd7c696a5c58885c34aa06da41c8543796"
   integrity sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg==
 
-"@layer3/gatekeeper-sdk@^1.10.0":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@layer3/gatekeeper-sdk/-/gatekeeper-sdk-1.10.0.tgz#2466be761e349f65e5ca7c2e1889b5b987cb79e3"
-  integrity sha512-Jf9W7YFir0CYu52P+9pmZWQiQt83Plo1myob8+y5OBQ8EhgoHSWRxWsNsvvBIBvhSOMECEdr9r1okJlgR/4A3w==
+"@layer3/gatekeeper-sdk@^1.10.1":
+  version "1.10.1"
+  resolved "https://registry.yarnpkg.com/@layer3/gatekeeper-sdk/-/gatekeeper-sdk-1.10.1.tgz#3eb5aa9a303b4f47f20f1d645c9b53dd71697b93"
+  integrity sha512-ZlkYf0t1lvqRXqsqZQPwcVIzH5VpbRuGHeGQmw7DJa0nVpKBDE6YZLqZp3DbACMaDV/DK0rBXIjIgm64u4jPNw==
   dependencies:
     "@ethersproject/providers" "^5.7.2"
     "@metamask/detect-provider" "^2.0.0"
