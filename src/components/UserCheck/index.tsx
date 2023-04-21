@@ -6,10 +6,10 @@ const UserCheck = () => {
   const { signer, address } = useContext(MetamaskContext);
 
   const customization = {
-    primaryColor: "white",
-    backgroundColor: "#006a65",
-    buttonTextColor: "black",
-    textColor: "white",
+    primaryColor: "#006a65",
+    backgroundColor: "white",
+    buttonTextColor: "white",
+    textColor: "black",
   };
 
   const KYC_ROLE_VERIDA = "64726a3f-b5a6-48c4-82c5-295e480f2091";
