@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
-import { useMatch, useNavigate } from "react-router-dom";
+import { Route, Routes, useMatch, useNavigate } from "react-router-dom";
 import { routes } from "lib/constants";
 import { Box, Container } from "@mui/material";
 import { TopBar } from "components/organisms";
 import { HomeView, ProfileDialog } from "components/views";
+import { HomeView2 } from "components/HomeView2";
 
 const TopBarOffset = styled("div")(({ theme }) => theme.mixins.toolbar);
 
@@ -35,7 +36,10 @@ export const App: React.FunctionComponent = () => {
       <TopBarOffset />
       <Box component="main" sx={{ flexGrow: 1, pt: 2 }}>
         <Container maxWidth="sm">
-          <HomeView />
+          <Routes>
+            <Route element={<HomeView />} path="/" />
+            <Route element={<HomeView2 />} path="/POH" />
+          </Routes>
         </Container>
       </Box>
       <ProfileDialog
