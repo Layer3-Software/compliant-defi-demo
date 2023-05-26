@@ -4,9 +4,9 @@ import { Alert, Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { routes } from "lib/constants";
 import { useKyc, useVerida } from "lib/hooks";
-import UserCheckPOH from "components/UserCheckPOH";
+import UserCheckPolygonID from "components/UserCheckPolygonID";
 
-export const HomeView2 = () => {
+export const HomeViewWithPolygonID = () => {
   const navigate = useNavigate();
   const { isConnected } = useVerida();
   const { kycChecked } = useKyc();
@@ -45,7 +45,7 @@ export const HomeView2 = () => {
       )}
       <SwapBox />
 
-      <UserCheckPOH />
+      <UserCheckPolygonID />
       <Typography variant="caption">
         This application is not functioning and meant for Verida demo purpose
         only

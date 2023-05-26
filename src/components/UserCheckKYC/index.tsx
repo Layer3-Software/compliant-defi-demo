@@ -2,20 +2,19 @@ import GateKeeperModal from "@layer3/gatekeeper-sdk";
 import { MetamaskContext } from "lib/contexts";
 import { useContext } from "react";
 
-const UserCheck = () => {
-  const { signer, address } = useContext(MetamaskContext);
+const UserCheckKYC = () => {
+  const { address } = useContext(MetamaskContext);
 
-  const customization = {
+  const DEFAULT_COLORS = {
     primaryColor: "#006a65",
-    backgroundColor: "white",
-    buttonTextColor: "white",
     textColor: "white",
+    buttonTextColor: "white",
+    backgroundColor: "#37444d",
   };
 
-  const KYC_ROLE_VERIDA = "338934a5-138d-4280-8609-1e213807a787";
-  const ROLE = "25b9e354-a6d4-4e0d-91f6-69669da7a7d9";
+  const KYC_ROLE = "80eb3102-6a8b-4275-b9fd-4d27477821c4";
 
-  const roles = [ROLE];
+  const roles = [KYC_ROLE];
 
   // eslint-disable-next-line @typescript-eslint/no-misused-promises
   if (!address) return null;
@@ -23,11 +22,11 @@ const UserCheck = () => {
     <div>
       <GateKeeperModal
         account={address}
-        polygonId
+        roles={roles}
         isStaging={true}
-        customization={customization}
+        customization={DEFAULT_COLORS}
       />
     </div>
   );
 };
-export default UserCheck;
+export default UserCheckKYC;

@@ -5,7 +5,7 @@ import { routes } from "lib/constants";
 import { Box, Container } from "@mui/material";
 import { TopBar } from "components/organisms";
 import { HomeView, ProfileDialog } from "components/views";
-import { HomeView2 } from "components/HomeView2";
+import { HomeViewWithPolygonID } from "components/HomeViewWithPolygonID";
 
 const TopBarOffset = styled("div")(({ theme }) => theme.mixins.toolbar);
 
@@ -37,8 +37,8 @@ export const App: React.FunctionComponent = () => {
       <Box component="main" sx={{ flexGrow: 1, pt: 2 }}>
         <Container maxWidth="sm">
           <Routes>
-            <Route element={<HomeView />} path="/" />
-            <Route element={<HomeView2 />} path="/POH" />
+            <Route element={<HomeView />} path="/kyc" />
+            <Route element={<HomeViewWithPolygonID />} path="/polygonID" />
           </Routes>
         </Container>
       </Box>

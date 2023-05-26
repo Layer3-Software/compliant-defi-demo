@@ -2,19 +2,14 @@ import GateKeeperModal from "@layer3/gatekeeper-sdk";
 import { MetamaskContext } from "lib/contexts";
 import { useContext } from "react";
 
-const UserCheckPOH = () => {
-  const { signer, address } = useContext(MetamaskContext);
-
-  const customization = {
+const UserCheckPolygonID = () => {
+  const { address } = useContext(MetamaskContext);
+  const DEFAULT_COLORS = {
     primaryColor: "#006a65",
-    backgroundColor: "white",
+    textColor: "white",
     buttonTextColor: "white",
-    textColor: "black",
+    backgroundColor: "#37444d",
   };
-
-  const POH_ROLE = "338934a5-138d-4280-8609-1e213807a787";
-
-  const roles = [POH_ROLE];
 
   // eslint-disable-next-line @typescript-eslint/no-misused-promises
   if (!address) return null;
@@ -22,11 +17,11 @@ const UserCheckPOH = () => {
     <div>
       <GateKeeperModal
         account={address}
-        roles={roles}
+        polygonId
         isStaging={true}
-        customization={customization}
+        customization={DEFAULT_COLORS}
       />
     </div>
   );
 };
-export default UserCheckPOH;
+export default UserCheckPolygonID;
