@@ -1,4 +1,4 @@
-import { GateKeeperModal } from "@layer3/gatekeeper-sdk";
+import GateKeeperModal from "@layer3/gatekeeper-sdk";
 import { MetamaskContext } from "lib/contexts";
 import { useContext } from "react";
 
@@ -9,7 +9,7 @@ const UserCheck = () => {
     primaryColor: "#006a65",
     backgroundColor: "white",
     buttonTextColor: "white",
-    textColor: "black",
+    textColor: "white",
   };
 
   const KYC_ROLE_VERIDA = "338934a5-138d-4280-8609-1e213807a787";
@@ -23,9 +23,7 @@ const UserCheck = () => {
     <div>
       <GateKeeperModal
         account={address}
-        roles={roles}
-        simulateKYC={false}
-        signer={signer}
+        polygonId
         isStaging={true}
         customization={customization}
       />

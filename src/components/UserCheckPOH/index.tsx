@@ -1,4 +1,4 @@
-import { GateKeeperModal } from "@layer3/gatekeeper-sdk";
+import GateKeeperModal from "@layer3/gatekeeper-sdk";
 import { MetamaskContext } from "lib/contexts";
 import { useContext } from "react";
 
@@ -23,8 +23,6 @@ const UserCheckPOH = () => {
       <GateKeeperModal
         account={address}
         roles={roles}
-        simulateKYC={true}
-        signer={signer}
         isStaging={true}
         customization={customization}
       />
