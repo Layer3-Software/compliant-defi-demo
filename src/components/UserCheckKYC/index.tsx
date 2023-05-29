@@ -1,10 +1,14 @@
-import GateKeeperModal from "@layer3/gatekeeper-sdk";
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import GateKeeperModal, { getSignature } from "@layer3/gatekeeper-sdk";
 import { MetamaskContext } from "lib/contexts";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 const UserCheckKYC = () => {
-  const { address } = useContext(MetamaskContext);
-
+  const { address, signer } = useContext(MetamaskContext);
+  const [signature, setSignature] = useState<string>("");
   const DEFAULT_COLORS = {
     primaryColor: "#006a65",
     textColor: "white",
@@ -16,13 +20,26 @@ const UserCheckKYC = () => {
 
   const roles = [KYC_ROLE];
 
+  useEffect(() => {
+    if (!address) return;
+    const init = async () => {
+      const appID = "31f8b1b4-a546-4930-8b74-467473d89aa3";
+      const { signature } = await getSignature(address, signer, appID, true);
+
+      setSignature(signature || "");
+    };
+
+    init();
+  }, [address, signer]);
+
   // eslint-disable-next-line @typescript-eslint/no-misused-promises
-  if (!address) return null;
+  if (!signature) return null;
   return (
     <div>
       <GateKeeperModal
         account={address}
         roles={roles}
+        signature={signature}
         isStaging={true}
         customization={DEFAULT_COLORS}
       />
