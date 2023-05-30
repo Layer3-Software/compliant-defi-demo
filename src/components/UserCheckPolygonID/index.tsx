@@ -17,7 +17,7 @@ const UserCheckPolygonID = () => {
     <div>
       <GateKeeperModal
         account={address}
-        polygonId
+        polygonId="29f03ca7-13e1-484b-a523-286890d9a606"
         isStaging={true}
         customization={DEFAULT_COLORS}
       />
