@@ -2356,10 +2356,10 @@
   resolved "https://registry.yarnpkg.com/@jsdevtools/ono/-/ono-7.1.3.tgz#9df03bbd7c696a5c58885c34aa06da41c8543796"
   integrity sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg==
 
-"@layer3/gatekeeper-sdk@^1.13.1":
-  version "1.13.1"
-  resolved "https://registry.yarnpkg.com/@layer3/gatekeeper-sdk/-/gatekeeper-sdk-1.13.1.tgz#a8ae2466d8485b08a431130379597e62882bb8cc"
-  integrity sha512-qt+04rUVyAY1OAHWBKtJ6QX9T39NhvCHzP5bw1lEuYN727VKTR1tPc64ylK1AxxcxH9QxOWG3lSrhoWZmuFzuA==
+"@layer3/gatekeeper-sdk@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@layer3/gatekeeper-sdk/-/gatekeeper-sdk-3.0.0.tgz#502004ca94533783f8ea1d41bdb28e4a50e5e48c"
+  integrity sha512-oVupTzl3L4j+2XLPRAM0bttda3x4Mq7qPr6CB3aL40XbYHp/+mxXf66PAzSQKppNBRsJolrD+HVLhnCJc9dK7Q==
 
 "@leichtgewicht/ip-codec@^2.0.1":
   version "2.0.4"

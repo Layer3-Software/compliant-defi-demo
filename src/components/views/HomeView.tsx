@@ -47,8 +47,8 @@ export const HomeView: React.FunctionComponent = () => {
 
       <UserCheckKYC />
       <Typography variant="caption">
-        This application is not functioning and meant for Verida demo purpose
-        only
+        This application is not functioning and meant for GateKeeper demo
+        purpose only
       </Typography>
     </Box>
   );

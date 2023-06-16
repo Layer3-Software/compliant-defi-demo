@@ -1,12 +1,16 @@
 import React from "react";
-import { SwapBox } from "components/organisms";
+import {
+  ProtectedSwapBoxStrong,
+  ProtectedSwapBoxWeak,
+  SwapBox,
+} from "components/organisms";
 import { Alert, Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { routes } from "lib/constants";
 import { useKyc, useVerida } from "lib/hooks";
 import UserCheckPolygonID from "components/UserCheckPolygonID";
 
-export const HomeViewWithPolygonID = () => {
+export const HomeViewWithPolygonID = ({ weak = false, disable = false }) => {
   const navigate = useNavigate();
   const { isConnected } = useVerida();
   const { kycChecked } = useKyc();
@@ -43,12 +47,20 @@ export const HomeViewWithPolygonID = () => {
           Provide a KYC to unlock your swap volume.
         </Alert>
       )}
-      <SwapBox />
+      {!disable ? (
+        weak ? (
+          <ProtectedSwapBoxWeak />
+        ) : (
+          <ProtectedSwapBoxStrong />
+        )
+      ) : (
+        <SwapBox />
+      )}
 
       <UserCheckPolygonID />
       <Typography variant="caption">
-        This application is not functioning and meant for Verida demo purpose
-        only
+        This application is not functioning and meant for GateKeeper demo
+        purpose only
       </Typography>
     </Box>
   );

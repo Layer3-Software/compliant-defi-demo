@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import GateKeeperModal, { getSignature } from "@layer3/gatekeeper-sdk";
+import AccessControlModal, { getSignature } from "@layer3/gatekeeper-sdk";
 import { MetamaskContext } from "lib/contexts";
 import { useContext, useEffect, useState } from "react";
 
@@ -36,7 +36,7 @@ const UserCheckKYC = () => {
   if (!signature) return null;
   return (
     <div>
-      <GateKeeperModal
+      <AccessControlModal
         account={address}
         roles={roles}
         signature={signature}

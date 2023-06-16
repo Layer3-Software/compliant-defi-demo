@@ -4,20 +4,24 @@ import { CssBaseline } from "@mui/material";
 import { BrowserRouter as Router } from "react-router-dom";
 import { AppContextProvider } from "lib/contexts";
 import { App } from "./App";
+import { GatekeeperContextProvider } from "@layer3/gatekeeper-sdk";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <AppContextProvider>
-      <CssBaseline />
-      <Router>
-        <App />
-      </Router>
-    </AppContextProvider>
+    <GatekeeperContextProvider>
+      <AppContextProvider>
+        <CssBaseline />
+        <Router>
+          <App />
+        </Router>
+      </AppContextProvider>
+    </GatekeeperContextProvider>
   </React.StrictMode>
 );
 

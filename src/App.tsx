@@ -6,6 +6,11 @@ import { Box, Container } from "@mui/material";
 import { TopBar } from "components/organisms";
 import { HomeView, ProfileDialog } from "components/views";
 import { HomeViewWithPolygonID } from "components/HomeViewWithPolygonID";
+import {
+  ProtectedRouteWeak,
+  ProtectedRouteStrong,
+} from "@layer3/gatekeeper-sdk";
+import { GatekeeperProtected } from "components/atoms/GatekeeperProtected";
 
 const TopBarOffset = styled("div")(({ theme }) => theme.mixins.toolbar);
 
@@ -38,7 +43,31 @@ export const App: React.FunctionComponent = () => {
         <Container maxWidth="sm">
           <Routes>
             <Route element={<HomeView />} path="/kyc" />
-            <Route element={<HomeViewWithPolygonID />} path="/polygonID" />
+            <Route
+              element={<HomeViewWithPolygonID weak={true} />}
+              path="/weakComponent"
+            />
+            <Route
+              element={<HomeViewWithPolygonID />}
+              path="/strongComponent"
+            />
+            <Route
+              element={
+                <ProtectedRouteWeak
+                  component={<HomeViewWithPolygonID disable={true} />}
+                />
+              }
+              path="/routeWeak"
+            />
+            <Route
+              element={
+                <ProtectedRouteStrong
+                  component={<HomeViewWithPolygonID disable={true} />}
+                  fallbackComponent={<GatekeeperProtected />}
+                />
+              }
+              path="/routeStrong"
+            />
           </Routes>
         </Container>
       </Box>

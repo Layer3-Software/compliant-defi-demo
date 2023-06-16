@@ -16,6 +16,11 @@ import {
 } from "lib/constants";
 import { MetamaskContext } from "lib/contexts";
 import { connectMetamask } from "lib/utils/metamaskConnections";
+import {
+  withGatekeeperStrong,
+  withGatekeeperWeak,
+} from "@layer3/gatekeeper-sdk";
+import { GatekeeperProtected } from "components/atoms/GatekeeperProtected";
 
 export const SwapBox: React.FunctionComponent = () => {
   const { isConnected, setAddress, setIsConnected, setSigner } =
@@ -114,3 +119,9 @@ export const SwapBox: React.FunctionComponent = () => {
     </Paper>
   );
 };
+
+export const ProtectedSwapBoxWeak = withGatekeeperWeak(SwapBox);
+export const ProtectedSwapBoxStrong = withGatekeeperStrong(
+  SwapBox,
+  GatekeeperProtected
+);
