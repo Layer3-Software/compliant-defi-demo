@@ -54,10 +54,12 @@ export const HomeViewWithPolygonID = ({ weak = false, disable = false }) => {
           <ProtectedSwapBoxStrong />
         )
       ) : (
-        <SwapBox />
+        <>
+          <SwapBox />
+          <UserCheckPolygonID />
+        </>
       )}
 
-      <UserCheckPolygonID />
       <Typography variant="caption">
         This application is not functioning and meant for GateKeeper demo
         purpose only
