@@ -49,7 +49,10 @@ export const HomeViewWithPolygonID = ({ weak = false, disable = false }) => {
       )}
       {!disable ? (
         weak ? (
-          <ProtectedSwapBoxWeak />
+          <>
+            <ProtectedSwapBoxWeak />
+            <UserCheckPolygonID />
+          </>
         ) : (
           <ProtectedSwapBoxStrong />
         )
